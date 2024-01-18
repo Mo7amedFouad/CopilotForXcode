@@ -190,13 +190,17 @@ extension RefactSuggestionService: RefactSuggestionServiceType {
         ongoingTasks.removeAll()
 
         requestCounter += 1
-
+        let model = UserDefaults.shared.value(for: \.refactCodeCompletionModel)
         let task = Task {
+            let lines = content.breakLines()
+            let currentLine = lines[cursorPosition.line]
+            let leftOfCursor = String(currentLine.prefix(cursorPosition.character))
+            let multiline = leftOfCursor.replacingOccurrences(of: "\\s", with: "", options: .regularExpression).isEmpty
             let requestBody = RefactRequest.GetCompletion.RequestBody(
                 noCache: false,
                 client: "xcode",
                 parameters: .init(temperature: 0.2, maxNewTokens: 50),
-                model: "",
+                model: model ,
                 inputs: .init(
                     cursor: .init(
                         character: cursorPosition.character,
@@ -206,7 +210,7 @@ extension RefactSuggestionService: RefactSuggestionServiceType {
                     sources: [
                         fileURL.path:content
                     ],
-                    multiline: true
+                    multiline: multiline
                 )
             )
             let request = RefactRequest.GetCompletion(

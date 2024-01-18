@@ -144,6 +144,10 @@ struct SuggestionSettingsView: View {
                     case .codeium:
                         Text("Codeium")
                             .tag(SuggestionFeatureProviderOption(name: "", builtInProvider: $0))
+                    case .refact:
+                        Text("Refact")
+                            .tag(SuggestionFeatureProviderOption(name: "", builtInProvider: $0))
+
                     }
                 }
 

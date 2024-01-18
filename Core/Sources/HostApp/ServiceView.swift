@@ -25,11 +25,20 @@ struct ServiceView: View {
                 image: "globe"
             )
             
+            ScrollView {
+                RefactView().padding()
+            }.sidebarItem(
+                tag: 2,
+                title: "Refact",
+                subtitle: "Suggestion",
+                image: "globe"
+            )
+            
             ChatModelManagementView(store: store.scope(
                 state: \.chatModelManagement,
                 action: HostApp.Action.chatModelManagement
             )).sidebarItem(
-                tag: 2,
+                tag: 3,
                 title: "Chat Models",
                 subtitle: "Chat, Prompt to Code",
                 image: "globe"
@@ -39,7 +48,7 @@ struct ServiceView: View {
                 state: \.embeddingModelManagement,
                 action: HostApp.Action.embeddingModelManagement
             )).sidebarItem(
-                tag: 3,
+                tag: 4,
                 title: "Embedding Models",
                 subtitle: "Chat, Prompt to Code",
                 image: "globe"
@@ -48,7 +57,7 @@ struct ServiceView: View {
             ScrollView {
                 BingSearchView().padding()
             }.sidebarItem(
-                tag: 4,
+                tag: 5,
                 title: "Bing Search",
                 subtitle: "Search Chat Plugin",
                 image: "globe"

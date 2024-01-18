@@ -62,6 +62,11 @@ public actor SuggestionService: SuggestionServiceType {
                 projectRootURL: projectRootURL,
                 onServiceLaunched: onServiceLaunched
             )
+        case .builtIn(.refact):
+            return RefactSuggestionProvider(
+                projectRootURL: projectRootURL,
+                onServiceLaunched: onServiceLaunched
+            )
         }
     }
 

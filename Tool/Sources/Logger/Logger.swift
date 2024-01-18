@@ -18,6 +18,7 @@ public final class Logger {
     public static let updateChecker = Logger(category: "UpdateChecker")
     public static let gitHubCopilot = Logger(category: "GitHubCopilot")
     public static let codeium = Logger(category: "Codeium")
+    public static let refact = Logger(category: "Refact")
     public static let langchain = Logger(category: "LangChain")
     public static let retrieval = Logger(category: "Retrieval")
     public static let license = Logger(category: "License")

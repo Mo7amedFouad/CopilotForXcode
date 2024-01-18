@@ -202,6 +202,34 @@ public extension UserDefaultPreferenceKeys {
     }
 }
 
+// MARK: - Refact Settings
+
+public extension UserDefaultPreferenceKeys {
+    var refactVerboseLog: PreferenceKey<Bool> {
+        .init(defaultValue: false, key: "RefactVerboseLog")
+    }
+    
+    var refactAddressURL: PreferenceKey<String> {
+        .init(defaultValue: "Refact", key: "RefactAddressURL")
+    }
+    
+    var refactAPIKey: PreferenceKey<String> {
+        .init(defaultValue: "", key: "RefactAPIKey")
+    }
+    
+    var refactCodeCompletionModel: PreferenceKey<String> {
+        .init(defaultValue: "", key: "RefactCodeCompletionModel")
+    }
+    
+    var refactHTTPPort: PreferenceKey<String> {
+        .init(defaultValue: "8081", key: "refactHTTPPort")
+    }
+    var refactLSPPort: PreferenceKey<String> {
+        .init(defaultValue: "8082", key: "refactLSPPort")
+    }
+}
+
+
 // MARK: - Chat Models
 
 public extension UserDefaultPreferenceKeys {

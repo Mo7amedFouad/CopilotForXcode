@@ -30,7 +30,7 @@ let package = Package(
         .library(name: "Workspace", targets: ["Workspace", "WorkspaceSuggestionService"]),
         .library(
             name: "SuggestionProvider",
-            targets: ["SuggestionProvider", "GitHubCopilotService", "CodeiumService"]
+            targets: ["SuggestionProvider", "GitHubCopilotService", "CodeiumService", "RefactService"]
         ),
         .library(
             name: "AppMonitoring",
@@ -303,6 +303,19 @@ let package = Package(
                 "XcodeInspector",
             ]
         ),
+        
+            .target(
+                name: "RefactService",
+                dependencies: [
+                    "LanguageClient",
+                    "Keychain",
+                    "SuggestionModel",
+                    "Preferences",
+                    "Terminal",
+                    "XcodeInspector",
+                ]
+            ),
+        
 
         // MARK: - OpenAI
 

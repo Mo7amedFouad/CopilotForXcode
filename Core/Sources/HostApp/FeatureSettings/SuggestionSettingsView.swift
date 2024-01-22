@@ -54,6 +54,8 @@ struct SuggestionSettingsView: View {
         var suggestionDisplayCompactMode
         @AppStorage(\.acceptSuggestionWithTab)
         var acceptSuggestionWithTab
+        @AppStorage(\.dismissSuggestionWithEsc)
+        var dismissSuggestionWithEsc
         @AppStorage(\.isSuggestionSenseEnabled)
         var isSuggestionSenseEnabled
 
@@ -188,6 +190,10 @@ struct SuggestionSettingsView: View {
                 Toggle(isOn: $settings.acceptSuggestionWithTab) {
                     Text("Accept Suggestion with Tab")
                 }
+            }
+            
+            Toggle(isOn: $settings.dismissSuggestionWithEsc) {
+                Text("Dismiss Suggestion with ESC")
             }
             #endif
 

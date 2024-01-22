@@ -80,6 +80,7 @@ final class RefactLanguageServer {
         do {
             try process.run()
 
+            launchHandler?()
         } catch {
             Logger.refact.error(error.localizedDescription)
             processTerminated(process)
@@ -99,9 +100,8 @@ final class RefactLanguageServer {
         terminationHandler?()
     }
 
-    private func finishStarting(port: String) {
+    private func finishStarting() {
         Logger.refact.info("Language server started.")
-        self.port = port
         launchHandler?()
     }
 

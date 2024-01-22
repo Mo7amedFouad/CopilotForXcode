@@ -224,21 +224,14 @@ extension RefactSuggestionService: RefactSuggestionServiceType {
             try Task.checkCancellation()
             
 
+            let range0 = multiline ? CursorPosition(line: cursorPosition.line, character: 0) : cursorPosition
+            let range1 = CursorPosition(line: cursorPosition.line, character: currentLine.count)
             return result.choices.enumerated().map { (index,item) in
                 CodeSuggestion(
                     id: "\(result.snippetTelemetryID)",
                     text: item.codeCompletion,
                     position: cursorPosition,
-                    range: CursorRange(
-                        start: .init(
-                            line: 0,
-                            character: 0
-                        ),
-                        end: .init(
-                            line: 0,
-                            character: 0
-                        )
-                    )
+                    range: .init(start: range0, end: range1)
                 )
             }
         }
